@@ -1,0 +1,10 @@
+<mat-drawer-container class="example-container" [hasBackdrop]="true">
+  <mat-drawer #drawer mode="over" >
+    Тут будет список задачи + кнопки
+  </mat-drawer>
+
+  <div>
+    <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button>
+  </div>
+
+</mat-drawer-container>
