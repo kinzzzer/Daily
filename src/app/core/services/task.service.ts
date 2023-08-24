@@ -39,6 +39,13 @@ export class TasksService {
             this.tasks.splice(index, 1, task)
         }
     };
+    delete(id: number | undefined): void {
+        console.log("delete in services", this.tasks);
+        const index = this.tasks.findIndex((elem) => elem.id == id);
+        if (index != -1) {
+            this.tasks.splice(index, 1)
+        }
+    }
 
 
     // this.persons.map((elem) => (
@@ -53,14 +60,4 @@ export class TasksService {
     //         foundTask.nataskNameme = task.nataskNameme;
     //         foundTask.taskDetails = task.taskDetails;
     //     }
-
-
-
-    delete(id: number | undefined): void {
-        console.log("delete in services", this.tasks);
-        const index = this.tasks.findIndex((elem) => elem.id == id);
-        if (index != -1) {
-            this.tasks.splice(index, 1)
-        }
-    }
 }

@@ -2,6 +2,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 /** @title Datepicker inline calendar example */
 @Component({
@@ -9,7 +13,7 @@ import { MatNativeDateModule } from '@angular/material/core';
   templateUrl: 'datapicker.component.html',
   styleUrls: ['datapicker.component.scss'],
   standalone: true,
-  imports: [MatCardModule, MatDatepickerModule, MatNativeDateModule],
+  imports: [MatSidenavModule, MatFormFieldModule, MatSelectModule, MatButtonModule, MatCardModule, MatDatepickerModule, MatNativeDateModule],
 })
 export class DatapickerComponent {
 

@@ -1,5 +1,16 @@
 <mat-card class="demo-inline-calendar-card">
-    <mat-calendar [(selected)]="selected"></mat-calendar>
-  </mat-card>
-  <p>Selected date: {{selected}}</p>
-  
+  <mat-calendar [(selected)]="selected">
+    <mat-drawer-container class="example-container" [hasBackdrop]="true">
+      <mat-drawer #drawer mode="over">
+        Тут будет список задачи + кнопки
+      </mat-drawer>
+      <div>
+        <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button>
+      </div>
+    </mat-drawer-container>
+  </mat-calendar>
+
+</mat-card>
+
+<!-- заставить ф работать по нажатию на дату?? -->
+<!--  -->
