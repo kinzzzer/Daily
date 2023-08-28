@@ -1,49 +1,17 @@
+import { Component, Inject } from "@angular/core";
+import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 
-// @Component({
-//   selector: 'app-new-task-dialog',
-//   templateUrl: './new-task-dialog.component.html',
-//   styleUrls: ['./new-task-dialog.component.scss']
-// })
-// export class NewTaskDialogComponent {
-
-// }
-
-import {Component, Inject} from '@angular/core';
-import {MatDialog, MAT_DIALOG_DATA, MatDialogModule} from '@angular/material/dialog';
-import {NgIf} from '@angular/common';
-import {MatButtonModule} from '@angular/material/button';
-
-export interface DialogData {
-  animal: 'panda' | 'unicorn' | 'lion';
-}
-
-/**
- * @title Injecting data when opening a dialog
- */
 @Component({
-  selector: 'dialog-data-example',
-  templateUrl: 'dialog-data-example.html',
-  standalone: true,
-  imports: [MatButtonModule, MatDialogModule],
+  selector: 'new-task-dialog',
+  templateUrl: 'new-task-dialog.component.html'
 })
-export class DialogDataExample {
-  constructor(public dialog: MatDialog) {}
+export class NewTaskDialogDialog {
+  constructor(
+    public dialogRef: MatDialogRef<NewTaskDialogDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: { name: string, animal: string},
+  ) {}
 
-  openDialog() {
-    this.dialog.open(DialogDataExampleDialog, {
-      data: {
-        animal: 'panda',
-      },
-    });
+  onNoClick(): void {
+    this.dialogRef.close();
   }
-}
-
-@Component({
-  selector: 'dialog-data-example-dialog',
-  templateUrl: 'dialog-data-example-dialog.html',
-  standalone: true,
-  imports: [MatDialogModule, NgIf],
-})
-export class DialogDataExampleDialog {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 }

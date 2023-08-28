@@ -1,27 +1,29 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSelectModule } from '@angular/material/select';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSidenavModule } from '@angular/material/sidenav';
-
-import {MatIconModule} from '@angular/material/icon';
-import {MatDividerModule} from '@angular/material/divider';
-
+import { MatDialog } from '@angular/material/dialog';
+import { NewTaskDialogDialog } from '../new-task-dialog/new-task-dialog.component';
 
 /** @title Drawer with explicit backdrop setting */
 @Component({
   selector: 'app-sidenav-tasks',
   templateUrl: './sidenav-tasks.component.html',
-  styleUrls: ['./sidenav-tasks.component.scss'],
-  standalone: true,
-  imports: [MatSidenavModule, MatIconModule, MatDividerModule, MatFormFieldModule, MatSelectModule, MatButtonModule],
+  styleUrls: ['./sidenav-tasks.component.scss']
 })
 export class SidenavBackdropExample {
-
   @Output() onSidenav = new EventEmitter<void>();
+
+  constructor(public dialog: MatDialog) {}
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(NewTaskDialogDialog, {
+      data: {name: "asd", animal: "asd"},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 
   onSidenavrClick() {
     this.onSidenav.emit();
   }
 }
-export class ButtonOverviewExample {}

@@ -1,12 +1,12 @@
 <mat-drawer-container class="example-container" [hasBackdrop]="true">
   <mat-drawer #drawer mode="over">
-    <!-- список задач как его отаброзить 
+    <!-- список задач как его отаброзить
     1)должен быть массив задач на каждом дне?
     2)один большой объект где ключ = дата а значение = массив с задачами  -->
 
 
     <!-- По нажатию на кнопку добавить диалоговое окно с инуптом  -->
-    <button mat-icon-button aria-label="add task btn" color="primary">
+    <button mat-icon-button aria-label="add task btn" color="primary" (click)="openDialog()">
       <mat-icon> done_outline_icon</mat-icon>
     </button>
 
@@ -24,6 +24,7 @@
 
   <div>
     <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button>
+    <datepicker-inline-calendar-example (selectedChange)="drawer.toggle()"></datepicker-inline-calendar-example>
   </div>
 
 </mat-drawer-container>
