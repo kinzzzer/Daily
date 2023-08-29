@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ITask } from './core/models';
+import { EditMode } from './core/models/editMode';
 import { TasksService } from './core/services';
+
 
 
 @Component({
@@ -15,6 +17,8 @@ export class AppComponent {
   }
 
   tasks: ITask[] = [];
+
+  mode = EditMode.New;
 
   constructor(private tasksService: TasksService) { }
 

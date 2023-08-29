@@ -8,7 +8,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 export class NewTaskDialogDialog {
   constructor(
     public dialogRef: MatDialogRef<NewTaskDialogDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: { name: string, animal: string},
+    @Inject(MAT_DIALOG_DATA) public data: { name: string, task: string},
   ) {}
 
   onNoClick(): void {

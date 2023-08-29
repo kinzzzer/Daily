@@ -1,25 +1,36 @@
 <mat-drawer-container class="example-container" [hasBackdrop]="true">
   <mat-drawer #drawer mode="over">
-    <!-- список задач как его отаброзить
-    1)должен быть массив задач на каждом дне?
-    2)один большой объект где ключ = дата а значение = массив с задачами  -->
+
+    <!-- <div class="person-container">
+      <div class="option">
+        <div class="title">Name</div>
+        <input type="text" [(ngModel)]="dataTask.name">
+        <div></div>
+      </div>
+      <div class="option">
+        <div class="title">Details</div>
+        <input type="text" [(ngModel)]="dataTask.details">
+      </div>
+    </div> -->
 
 
-    <!-- По нажатию на кнопку добавить диалоговое окно с инуптом  -->
-    <button mat-icon-button aria-label="add task btn" color="primary" (click)="openDialog()">
-      <mat-icon> done_outline_icon</mat-icon>
-    </button>
+    <div *ngIf="mode === modes.New">
+      <button mat-icon-button aria-label="add task btn" color="primary" (click)="openDialog()">
+        <mat-icon> done_outline_icon</mat-icon>
+      </button>
+    </div>
 
-    <!-- условие если список задач не 0
-      кнопка удалить и редактировать существуют
-      и подвязанны под выбранную Таску-->
-    <button mat-icon-button aria-label="edit task btn">
-      <mat-icon>border_color_icon</mat-icon>
-    </button>
 
-    <button mat-icon-button color="warn" aria-label="delete task btn">
-      <mat-icon>delete_forever_icon</mat-icon>
-    </button>
+    <div *ngIf="mode === modes.Edit">
+      <button mat-icon-button aria-label="edit task btn">
+        <mat-icon>border_color_icon</mat-icon>
+      </button>
+
+      <button mat-icon-button color="warn" aria-label="delete task btn">
+        <mat-icon>delete_forever_icon</mat-icon>
+      </button>
+    </div>
+
   </mat-drawer>
 
   <div>
@@ -28,3 +39,16 @@
   </div>
 
 </mat-drawer-container>
+
+
+<!-- список задач как его отаброзить
+    1)должен быть массив задач на каждом дне?
+    2)один большой объект где ключ = дата а значение = массив с задачами  -->
+
+<!-- По нажатию на кнопку добавить диалоговое окно с инуптом  -->
+
+<!-- добавить snackbar при добавлении -->
+
+<!-- условие если список задач не 0
+      кнопка удалить и редактировать существуют
+      и подвязанны под выбранную Таску-->

@@ -1,12 +1,12 @@
-<h1 mat-dialog-title>Hi {{data.name}}</h1>
+<h1 mat-dialog-title>Hi, {{data.name}}</h1>
 <div mat-dialog-content>
-  <p>What's your favorite animal?</p>
+  <p>So, what is the plan for today?</p>
   <mat-form-field>
-    <mat-label>Favorite Animal</mat-label>
-    <input matInput [(ngModel)]="data.animal">
+    <mat-label>Are u ready?</mat-label>
+    <input matInput [(ngModel)]="data.task">
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="data.task" cdkFocusInitial>Add Task</button>
   <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
 </div>
