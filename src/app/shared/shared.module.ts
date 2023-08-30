@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TableTasksComponent } from './table-tasks/table-tasks.component';
 
 
 
@@ -9,6 +10,8 @@ import { CommonModule } from '@angular/common';
   ],
   declarations: [
 
+  
+    TableTasksComponent
   ]
 })
 export class SharedModule { }

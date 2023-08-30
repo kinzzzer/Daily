@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { Component, EventEmitter, Output, Input, ViewChild } from '@angular/core';
+import {MatTable, MatTableModule} from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { ITask } from 'src/app/core/models';
 import { EditMode } from 'src/app/core/models/editMode';
@@ -15,6 +17,8 @@ export class SidenavBackdropExample {
   @Input() mode: EditMode = EditMode.New;
 
   @Output() onSidenav = new EventEmitter<void>();
+  @Output() onEditTask = new EventEmitter<ITask>();
+  @Output() onDeleteTask = new EventEmitter<ITask>();
 
   constructor(public dialog: MatDialog) { }
 
@@ -32,7 +36,29 @@ export class SidenavBackdropExample {
     this.onSidenav.emit();
   }
 
-  checkDataTask() : boolean {
-    return this.dataTask.id !== undefined
+  onEditClick(item: ITask): void{
+    this.onEditTask.emit(item)
+  }
+  
+  onDeleteClick(item: ITask): void{
+    this.onDeleteTask.emit(item)
+  }
+}
+
+export class TableDynamicArrayDataExample {
+  displayedColumns: string[] = ['id', 'name', 'details', 'dataTime'];
+  dataSource = [...dataTask.name];
+
+  @ViewChild(MatTable) table: MatTable<PeriodicElement>;
+
+  addData() {
+    const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
+    this.dataSource.push(ELEMENT_DATA[randomElementIndex]);
+    this.table.renderRows();
+  }
+
+  removeData() {
+    this.dataSource.pop();
+    this.table.renderRows();
   }
 }

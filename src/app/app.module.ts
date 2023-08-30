@@ -22,30 +22,29 @@ import { FormsModule } from '@angular/forms';
 // import { DialogDataExample } from './shared/new-task-dialog/new-task-dialog.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SidenavBackdropExample,
-    DatapickerComponent,
-    NewTaskDialogDialog,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-
-    FormsModule,
-    MatDatepickerModule,
-    MatCardModule,
-    MatNativeDateModule,
-    MatButtonModule,
-    MatSelectModule,
-    MatFormFieldModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatDialogModule,
-    MatInputModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        SidenavBackdropExample,
+        NewTaskDialogDialog,
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        MatDatepickerModule,
+        MatCardModule,
+        MatNativeDateModule,
+        MatButtonModule,
+        MatSelectModule,
+        MatFormFieldModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatDialogModule,
+        MatInputModule,
+        DatapickerComponent
+    ]
 })
 export class AppModule { }

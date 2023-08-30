@@ -13,10 +13,11 @@ import { TasksService } from './core/services';
 export class AppComponent {
   onSelectedDateChange(value: Date | null): void {
     console.log(value);
-    
+
   }
 
   tasks: ITask[] = [];
+  // editTask: ITask = {}; 
 
   mode = EditMode.New;
 
@@ -32,4 +33,9 @@ export class AppComponent {
   private refresh(): void {
     this.tasks = this.tasksService.get();
   }
-}
+
+  // onAddClick(): void {
+  //   this.tasksService.add(this.editTask);
+  //   this.refresh();
+  //   // this.editTask = {};
+  // }

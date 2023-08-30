@@ -1,35 +1,26 @@
 <mat-drawer-container class="example-container" [hasBackdrop]="true">
   <mat-drawer #drawer mode="over">
 
-    <!-- <div class="person-container">
-      <div class="option">
-        <div class="title">Name</div>
-        <input type="text" [(ngModel)]="dataTask.name">
-        <div></div>
-      </div>
-      <div class="option">
-        <div class="title">Details</div>
-        <input type="text" [(ngModel)]="dataTask.details">
-      </div>
-    </div> -->
+    <app-table-tasks></app-table-tasks>
+    <div>
+      <button mat-icon-button aria-label="edit task btn">
+        <!-- (click)="onEditTask(item)" -->
+        <mat-icon>border_color_icon</mat-icon>
+      </button>
+
+      <button mat-icon-button color="warn" aria-label="delete task btn">
+        <!-- (click)="onDeleteTask(item)" -->
+        <mat-icon>delete_forever_icon</mat-icon>
+      </button>
+    </div>
 
 
-    <div *ngIf="mode === modes.New">
+    <div>
       <button mat-icon-button aria-label="add task btn" color="primary" (click)="openDialog()">
         <mat-icon> done_outline_icon</mat-icon>
       </button>
     </div>
 
-
-    <div *ngIf="mode === modes.Edit">
-      <button mat-icon-button aria-label="edit task btn">
-        <mat-icon>border_color_icon</mat-icon>
-      </button>
-
-      <button mat-icon-button color="warn" aria-label="delete task btn">
-        <mat-icon>delete_forever_icon</mat-icon>
-      </button>
-    </div>
 
   </mat-drawer>
 
